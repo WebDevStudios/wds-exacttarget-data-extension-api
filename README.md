@@ -6,6 +6,10 @@ E.g.:
 
 _______________
 
+``` php
+$api = new WDS_ET_DE_API(); // Note that connection details need to be setup via the Settings page for the plugin for the API to work.
+```
+
 ## Add a row
 
 ``` php
