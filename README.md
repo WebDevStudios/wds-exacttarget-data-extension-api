@@ -1,34 +1,3 @@
-# WDS Exacttarget Data Extension API #
-**Contributors:**      WebDevStudios
-**Donate link:**       http://webdevstudios.com
-**Tags:**
-**Requires at least:** 4.4
-**Tested up to:**      4.4
-**Stable tag:**        0.0.0
-**License:**           GPLv2
-**License URI:**       http://www.gnu.org/licenses/gpl-2.0.html
+# WDS Exacttarget Data Extension API 
 
-## Description ##
-
-A library for pushing data to Exacttarget Data Extensions.
-
-## Installation ##
-
-### Manual Installation ###
-
-1. Upload the entire `/wds-exacttarget-data-extension-api` directory to the `/wp-content/plugins/` directory.
-2. Activate WDS Exacttarget Data Extension API through the 'Plugins' menu in WordPress.
-
-## Frequently Asked Questions ##
-
-## Screenshots ##
-
-## Changelog ##
-
-### 0.0.0 ###
-* First release
-
-## Upgrade Notice ##
-
-### 0.0.0 ###
-First Release
+Activate this plugin to add a library you can use to write data to Data Extensions on Exacttarget.
