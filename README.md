@@ -70,3 +70,34 @@ $all_rows = $api->get( 'Data Extension Name', array(
     'zip',
 ) );
 ```
+
+## Get rows by filter
+
+``` php
+$some_rows = $api->get( 'Data Extension Name', array(
+
+    // Get these fields.
+    'Email Address',
+    'first_name',
+    'last_name',
+    'zip',
+), 'zip', '77777', '=' ); // Gets all rows where zip = 77777 
+
+$some_rows = $api->get( 'Data Extension Name', array(
+
+    // Get these fields.
+    'Email Address',
+    'first_name',
+    'last_name',
+    'zip',
+), 'zip', '77777', '!=' ); // Gets all rows where zip is not 77777
+
+$some_rows = $api->get( 'Data Extension Name', array(
+
+    // Get these fields.
+    'Email Address',
+    'first_name',
+    'last_name',
+    'zip',
+), 'zip', '77777', '>' ); // Gets all rows where zip > 88888
+```
