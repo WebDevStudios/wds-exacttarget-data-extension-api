@@ -253,7 +253,12 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 * @author Aubrey Portwood
 	 */
 	public function add_options_page_metabox() {
-
+		
+		// Bail on ajax requests.
+		if ( wp_doing_ajax() ) {
+		  return;
+		}
+		
 		$cmb = new_cmb2_box( array(
 			'id'         => $this->metabox_id,
 			'hookup'     => false,
