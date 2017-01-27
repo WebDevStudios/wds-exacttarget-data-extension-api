@@ -136,14 +136,6 @@ final class WDS_ET_DE {
 	protected $fuelsdk_config;
 
 	/**
-	 * Instance of WDS_ET_DE_Helpers
-	 *
-	 * @since NEXT
-	 * @var WDS_ET_DE_Helpers
-	 */
-	protected $helpers;
-
-	/**
 	 * Instance of WDS_ET_DE_Exact_Target_Admin
 	 *
 	 * @since NEXT
@@ -194,7 +186,6 @@ final class WDS_ET_DE {
 	public function plugin_classes() {
 		// Attach other plugin classes to the base plugin class.
 		$this->vendors        = new WDS_ET_DE_Vendors( $this );
-		$this->helpers        = new WDS_ET_DE_Helpers( $this );
 		$this->admin          = new WDS_ET_DE_Exact_Target_Admin( $this );
 		$this->fuelsdk_config = new WDS_ET_DE_Fuelsdk_Config( $this );
 		$this->ajax           = new WDS_ET_DE_Ajax( $this );
@@ -252,7 +243,6 @@ final class WDS_ET_DE {
 			case 'file':
 			case 'vendors':
 			case 'fuelsdk_config':
-			case 'helpers':
 			case 'admin':
 			case 'ajax':
 				return $this->$field;
@@ -300,6 +290,24 @@ final class WDS_ET_DE {
 		static $url;
 		$url = $url ? $url : trailingslashit( plugin_dir_url( __FILE__ ) );
 		return $url . $path;
+	}
+
+	/**
+	 * Is this multi-site?
+	 *
+	 * This extends is_multisite by also allowing us to set a constant
+	 * to make the things behave as if it's a single install, but while
+	 * multi-site is active.
+	 *
+	 * @author Aubrey Portwood
+	 * @since  NEXT
+	 * @return boolean True if we want things to behave like mulitisite, false if not.
+	 */
+	public function is_multisite() {
+
+		// You can set WDS_EXACTTARGET_FORCE_SINGLE_INSTALL_ON_MULTISITE to true
+		// and it will make each subsite, on multisite, to have its own settings.
+		return ( is_multisite() && ! ( defined( 'WDS_ET_FORCE_SINGLE_INSTALL_ON_MULTISITE' ) && WDS_ET_FORCE_SINGLE_INSTALL_ON_MULTISITE ) );
 	}
 }
 

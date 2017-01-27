@@ -114,7 +114,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	public function options_page_hooks() {
 
 		// Multi-site installs.
-		if ( $this->plugin->helpers->is_multisite() ) {
+		if ( $this->plugin->is_multisite() ) {
 
 			// If multi-site, add to Network > Settings menu.
 			add_action( 'network_admin_menu', array( $this, 'add_options_page' ) );
@@ -219,7 +219,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 */
 	public function add_options_page() {
 
-		$parent_slug = $this->plugin->helpers->is_multisite() ? 'settings.php' : 'options-general.php';
+		$parent_slug = $this->plugin->is_multisite() ? 'settings.php' : 'options-general.php';
 
 		// Add a sub-menu page to options.
 		$this->options_page = add_submenu_page( $parent_slug, $this->title, $this->title, 'manage_options', $this->key, array( $this, 'admin_page_display' ) );
