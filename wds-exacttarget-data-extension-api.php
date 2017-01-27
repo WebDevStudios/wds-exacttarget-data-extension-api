@@ -257,7 +257,7 @@ final class WDS_ET_DE {
 			case 'ajax':
 				return $this->$field;
 			default:
-				throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
+				throw new Exception( 'Invalid ' . __CLASS__ . ' property: ' . $field );
 		}
 	}
 
@@ -269,7 +269,7 @@ final class WDS_ET_DE {
 	 * @return bool   Result of include call.
 	 */
 	public static function include_file( $filename ) {
-		$file = self::dir( 'includes/class-'. $filename .'.php' );
+		$file = self::dir( 'includes/class-' . $filename . '.php' );
 		if ( file_exists( $file ) ) {
 			return include_once( $file );
 		}
