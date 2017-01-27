@@ -198,8 +198,10 @@ class WDS_ET_DE_Exact_Target_Admin {
 		if ( isset( $settings['debug_hooks'] ) && 'on' === $settings['debug_hooks'] ) {
 
 			// Start an area where people can dump output.
-			echo sprintf( '<h3>%s</h3>', __( 'Debug', 'wds-exacttarget-data-extension-api' ) );
-			echo '<pre class="debug">';
+			echo sprintf( '<h3>%s</h3>', esc_attr__( 'Debug', 'wds-exacttarget-data-extension-api' ) );
+
+			// Echo our markup for our debug field. Inline styles to prevent having to deal with a seperate stylesheet.
+			echo '<pre style="background:#fff;border-radius:2px;border:1px solid #dadada;max-height:500px;overflow:scroll;padding:10px;">';
 
 			// If debug hook enabled, fire the hook.
 			do_action( 'wds_et_de_debug' );
