@@ -6,7 +6,7 @@
  * @package WDS Exacttarget Data Extension API
  */
 
-require_once dirname(__FILE__) . '/../vendor/cmb2/init.php';
+require_once dirname( __FILE__ ) . '/../vendor/cmb2/init.php';
 
 /**
  * WDS Exacttarget Data Extension API Exact Target Admin class.
@@ -49,6 +49,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 
 	/**
 	 * Options Page hook
+	 *
 	 * @var string
 	 */
 	protected $options_page = '';
@@ -77,32 +78,14 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 */
 	public function hooks() {
 
+		// Hook in.
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 
 		// Options page.
 		$this->options_page_hooks();
 
-		// Enqueue stuff.
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
-
 		// After the debug field, try and run the debug hook.
 		add_action( 'cmb2_after_options-page_form_wds_exacttarget_data_extension_api_admin_metabox', array( $this, 'debug_hooks' ) );
-	}
-
-	/**
-	 * Enqueue Scripts.
-	 *
-	 * @author Aubrey Portwood
-	 * @since  NEXT
-	 */
-	public function admin_enqueue_scripts() {
-		$page = isset( $_GET['page'] ) ? $_GET['page'] : false;
-
-		// Only enqueue on the options page.
-		if ( $page && $this->key === $page ) {
-			wp_enqueue_script( $this->key, plugins_url( 'assets/js/admin.js', $this->plugin->file ), array( 'jquery' ), $this->plugin->version(), true );
-			wp_enqueue_style( $this->key, plugins_url( 'assets/css/admin.css', $this->plugin->file ), array(), $this->plugin->version() );
-		}
 	}
 
 	/**
@@ -120,12 +103,11 @@ class WDS_ET_DE_Exact_Target_Admin {
 			add_action( 'network_admin_menu', array( $this, 'add_options_page' ) );
 
 			// Override CMB's getter.
-			add_filter( 'cmb2_override_option_get_'. $this->key, array( $this, 'get_override' ), 10, 2 );
+			add_filter( 'cmb2_override_option_get_' . $this->key, array( $this, 'get_override' ) );
 
 			// Override CMB's setter.
-			add_filter( 'cmb2_override_option_save_'. $this->key, array( $this, 'update_override' ), 10, 2 );
+			add_filter( 'cmb2_override_option_save_' . $this->key, array( $this, 'update_override' ) );
 
-		// Single site installs.
 		} else {
 
 			// Add to individual site menu if not multi-site.
@@ -143,9 +125,9 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 * @author Aubrey Portwood
 	 */
 	public function get_override( $test, $default = false ) {
-
 		return get_site_option( $this->key, $default );
 	}
+
 	/**
 	 * Replaces update_option with update_site_option.
 	 *
@@ -153,7 +135,6 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 * @author Aubrey Portwood
 	 */
 	public function update_override( $test, $option_value ) {
-
 		return update_site_option( $this->key, $option_value );
 	}
 
@@ -255,12 +236,12 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 * @author Aubrey Portwood
 	 */
 	public function add_options_page_metabox() {
-		
+
 		// Bail on ajax requests.
 		if ( wp_doing_ajax() ) {
-		  return;
+			return;
 		}
-		
+
 		$cmb = new_cmb2_box( array(
 			'id'         => $this->metabox_id,
 			'hookup'     => false,
