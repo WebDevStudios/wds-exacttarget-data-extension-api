@@ -144,14 +144,6 @@ final class WDS_ET_DE {
 	protected $admin;
 
 	/**
-	 * Instance of WDS_ET_DE_Ajax
-	 *
-	 * @since NEXT
-	 * @var WDS_ET_DE_Ajax
-	 */
-	protected $ajax;
-
-	/**
 	 * Creates or returns an instance of this class.
 	 *
 	 * @since  NEXT
@@ -188,7 +180,6 @@ final class WDS_ET_DE {
 		$this->vendors        = new WDS_ET_DE_Vendors( $this );
 		$this->admin          = new WDS_ET_DE_Exact_Target_Admin( $this );
 		$this->fuelsdk_config = new WDS_ET_DE_Fuelsdk_Config( $this );
-		$this->ajax           = new WDS_ET_DE_Ajax( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
@@ -244,7 +235,6 @@ final class WDS_ET_DE {
 			case 'vendors':
 			case 'fuelsdk_config':
 			case 'admin':
-			case 'ajax':
 				return $this->$field;
 			default:
 				throw new Exception( 'Invalid ' . __CLASS__ . ' property: ' . $field );
