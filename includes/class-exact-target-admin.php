@@ -161,22 +161,13 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 */
 	public function debug_hooks() {
 
-		if ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG ) {
-
-			// Only when WP_DEBUG allows.
+		// Only do the rest when WP_DEBUG is enabled.
+		if ( ! ( defined( 'WP_DEBUG' ) &&  WP_DEBUG ) ) {
 			return;
 		}
 
-		// The CMB2 key.
-		$key = 'wds_exacttarget_data_extension_api_admin';
-
-		if ( is_multisite() ) {
-			$settings = get_site_option( $key );
-		} else {
-			$settings = get_option( $key );
-		}
-
-		if ( isset( $settings['debug_hooks'] ) && 'on' === $settings['debug_hooks'] ) {
+		// Display our debug if we have anything hooked into it.
+		if ( has_action( 'wds_et_de_debug' ) ) {
 
 			// Start an area where people can dump output.
 			echo sprintf( '<h3>%s</h3>', esc_attr__( 'Debug', 'wds-exacttarget-data-extension-api' ) );
@@ -254,40 +245,16 @@ class WDS_ET_DE_Exact_Target_Admin {
 			),
 		) );
 
-		// Loading icon.
-		$loading = '<span title="Checking connection...">?</span>';
-
 		$cmb->add_field( array(
 			'name'    => __( 'Client ID', 'wds-exacttarget-data-extension-api' ),
-			'desc'    => sprintf( __( 'Client ID %s', 'wds-exacttarget-data-extension-api' ), $loading ),
 			'id'      => 'client_id',
-			'type'    => 'text',
+			'type'    => 'text_medium',
 		) );
 
 		$cmb->add_field( array(
 			'name'    => __( 'Client Secret', 'wds-exacttarget-data-extension-api' ),
-			'desc'    => sprintf( __( 'Client Secret %s', 'wds-exacttarget-data-extension-api' ), $loading ),
 			'id'      => 'client_secret',
-			'type'    => 'text',
+			'type'    => 'text_medium',
 		) );
-
-		// Only in developer mode.
-		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-
-			/*
-			 * Add a field where a hook can be enabled/disabled.
-			 *
-			 * This allows developers (of the plugin) to test API for development with
-			 * a separate plugin.
-			 *
-			 * @author Aubrey Portwood
-			 */
-			$cmb->add_field( array(
-				'name' => __( 'Execute Debug Hooks', 'wds-exacttarget-data-extension-api' ),
-				'desc' => sprintf( __( 'When this is enabled, the action %s will be fired when this options page is loaded. This is where you can hook in and test the API.', 'wds-exacttarget-data-extension-api' ), '<code>wds_et_de_debug</code>' ),
-				'id'   => 'debug_hooks',
-				'type' => 'checkbox',
-			) );
-		}
 	}
 }
