@@ -91,9 +91,7 @@ class WDS_ET_DE_Fuelsdk_Config {
 	 * @return string The Client ID.
 	 */
 	public function get_client_id() {
-		return isset( $this->settings['client_id'] )
-			? $this->settings['client_id']
-			: '';
+		return isset( $this->settings['client_id'] ) ? $this->settings['client_id'] : '';
 	}
 
 	/**
@@ -105,8 +103,6 @@ class WDS_ET_DE_Fuelsdk_Config {
 	 * @return string The Client Secret.
 	 */
 	public function get_client_secret() {
-		return isset( $this->settings['client_secret'] )
-			? $this->settings['client_secret']
-			: '';
+		return isset( $this->settings['client_secret'] ) ? $this->settings['client_secret'] : '';
 	}
 }
