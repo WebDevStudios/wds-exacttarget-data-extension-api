@@ -1,6 +1,6 @@
-# WDS ExactTarget Data Extension API 
+# WDS Exacttarget Data Extension API 
 
-Activate this plugin to add a library you can use to write data to Data Extensions on ExactTarget. 
+Activate this plugin to add a library you can use to write data to Data Extensions on Exacttarget. 
 
 E.g.:
 

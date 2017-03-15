@@ -6,7 +6,7 @@
  * @package WDS Exacttarget Data Extension API
  */
 
-require_once dirname( __FILE__ ) . '/../vendor/cmb2/init.php';
+require_once dirname(__FILE__) . '/../vendor/cmb2/init.php';
 
 /**
  * WDS Exacttarget Data Extension API Exact Target Admin class.
@@ -49,7 +49,6 @@ class WDS_ET_DE_Exact_Target_Admin {
 
 	/**
 	 * Options Page hook
-	 *
 	 * @var string
 	 */
 	protected $options_page = '';
@@ -78,14 +77,32 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 */
 	public function hooks() {
 
-		// Hook in.
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 
 		// Options page.
 		$this->options_page_hooks();
 
+		// Enqueue stuff.
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+
 		// After the debug field, try and run the debug hook.
 		add_action( 'cmb2_after_options-page_form_wds_exacttarget_data_extension_api_admin_metabox', array( $this, 'debug_hooks' ) );
+	}
+
+	/**
+	 * Enqueue Scripts.
+	 *
+	 * @author Aubrey Portwood
+	 * @since  NEXT
+	 */
+	public function admin_enqueue_scripts() {
+		$page = isset( $_GET['page'] ) ? $_GET['page'] : false;
+
+		// Only enqueue on the options page.
+		if ( $page && $this->key === $page ) {
+			wp_enqueue_script( $this->key, plugins_url( 'assets/js/admin.js', $this->plugin->file ), array( 'jquery' ), $this->plugin->version(), true );
+			wp_enqueue_style( $this->key, plugins_url( 'assets/css/admin.css', $this->plugin->file ), array(), $this->plugin->version() );
+		}
 	}
 
 	/**
@@ -97,17 +114,18 @@ class WDS_ET_DE_Exact_Target_Admin {
 	public function options_page_hooks() {
 
 		// Multi-site installs.
-		if ( $this->plugin->is_multisite() ) {
+		if ( $this->plugin->helpers->is_multisite() ) {
 
 			// If multi-site, add to Network > Settings menu.
 			add_action( 'network_admin_menu', array( $this, 'add_options_page' ) );
 
 			// Override CMB's getter.
-			add_filter( 'cmb2_override_option_get_' . $this->key, array( $this, 'get_override' ) );
+			add_filter( 'cmb2_override_option_get_'. $this->key, array( $this, 'get_override' ), 10, 2 );
 
 			// Override CMB's setter.
-			add_filter( 'cmb2_override_option_save_' . $this->key, array( $this, 'update_override' ) );
+			add_filter( 'cmb2_override_option_save_'. $this->key, array( $this, 'update_override' ), 10, 2 );
 
+		// Single site installs.
 		} else {
 
 			// Add to individual site menu if not multi-site.
@@ -125,9 +143,9 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 * @author Aubrey Portwood
 	 */
 	public function get_override( $test, $default = false ) {
+
 		return get_site_option( $this->key, $default );
 	}
-
 	/**
 	 * Replaces update_option with update_site_option.
 	 *
@@ -135,6 +153,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 * @author Aubrey Portwood
 	 */
 	public function update_override( $test, $option_value ) {
+
 		return update_site_option( $this->key, $option_value );
 	}
 
@@ -161,19 +180,26 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 */
 	public function debug_hooks() {
 
-		// Only do the rest when WP_DEBUG is enabled.
-		if ( ! ( defined( 'WP_DEBUG' ) &&  WP_DEBUG ) ) {
+		if ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG ) {
+
+			// Only when WP_DEBUG allows.
 			return;
 		}
 
-		// Display our debug if we have anything hooked into it.
-		if ( has_action( 'wds_et_de_debug' ) ) {
+		// The CMB2 key.
+		$key = 'wds_exacttarget_data_extension_api_admin';
+
+		if ( is_multisite() ) {
+			$settings = get_site_option( $key );
+		} else {
+			$settings = get_option( $key );
+		}
+
+		if ( isset( $settings['debug_hooks'] ) && 'on' === $settings['debug_hooks'] ) {
 
 			// Start an area where people can dump output.
-			echo sprintf( '<h3>%s</h3>', esc_attr__( 'Debug', 'wds-exacttarget-data-extension-api' ) );
-
-			// Echo our markup for our debug field. Inline styles to prevent having to deal with a seperate stylesheet.
-			echo '<pre style="background:#fff;border-radius:2px;border:1px solid #dadada;max-height:500px;overflow:scroll;padding:10px;">';
+			echo sprintf( '<h3>%s</h3>', __( 'Debug', 'wds-exacttarget-data-extension-api' ) );
+			echo '<pre class="debug">';
 
 			// If debug hook enabled, fire the hook.
 			do_action( 'wds_et_de_debug' );
@@ -193,7 +219,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 */
 	public function add_options_page() {
 
-		$parent_slug = $this->plugin->is_multisite() ? 'settings.php' : 'options-general.php';
+		$parent_slug = $this->plugin->helpers->is_multisite() ? 'settings.php' : 'options-general.php';
 
 		// Add a sub-menu page to options.
 		$this->options_page = add_submenu_page( $parent_slug, $this->title, $this->title, 'manage_options', $this->key, array( $this, 'admin_page_display' ) );
@@ -228,11 +254,6 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 */
 	public function add_options_page_metabox() {
 
-		// Bail on ajax requests.
-		if ( wp_doing_ajax() ) {
-			return;
-		}
-
 		$cmb = new_cmb2_box( array(
 			'id'         => $this->metabox_id,
 			'hookup'     => false,
@@ -245,16 +266,40 @@ class WDS_ET_DE_Exact_Target_Admin {
 			),
 		) );
 
+		// Loading icon.
+		$loading = '<span title="Checking connection...">?</span>';
+
 		$cmb->add_field( array(
 			'name'    => __( 'Client ID', 'wds-exacttarget-data-extension-api' ),
+			'desc'    => sprintf( __( 'Client ID %s', 'wds-exacttarget-data-extension-api' ), $loading ),
 			'id'      => 'client_id',
-			'type'    => 'text_medium',
+			'type'    => 'text',
 		) );
 
 		$cmb->add_field( array(
 			'name'    => __( 'Client Secret', 'wds-exacttarget-data-extension-api' ),
+			'desc'    => sprintf( __( 'Client Secret %s', 'wds-exacttarget-data-extension-api' ), $loading ),
 			'id'      => 'client_secret',
-			'type'    => 'text_medium',
+			'type'    => 'text',
 		) );
+
+		// Only in developer mode.
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+
+			/*
+			 * Add a field where a hook can be enabled/disabled.
+			 *
+			 * This allows developers (of the plugin) to test API for development with
+			 * a separate plugin.
+			 *
+			 * @author Aubrey Portwood
+			 */
+			$cmb->add_field( array(
+				'name' => __( 'Execute Debug Hooks', 'wds-exacttarget-data-extension-api' ),
+				'desc' => sprintf( __( 'When this is enabled, the action %s will be fired when this options page is loaded. This is where you can hook in and test the API.', 'wds-exacttarget-data-extension-api' ), '<code>wds_et_de_debug</code>' ),
+				'id'   => 'debug_hooks',
+				'type' => 'checkbox',
+			) );
+		}
 	}
 }
