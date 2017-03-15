@@ -1,8 +1,8 @@
 <?php
 /*
- * Plugin Name: WDS ExactTarget Data Extension API
+ * Plugin Name: WDS Exacttarget Data Extension API
  * Plugin URI:  http://webdevstudios.com
- * Description: A library for pushing data to ExactTarget Data Extensions.
+ * Description: A library for pushing data to Exacttarget Data Extensions.
  * Version:     0.0.0
  * Author:      WebDevStudios
  * Author URI:  http://webdevstudios.com
