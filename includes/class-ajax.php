@@ -4,14 +4,14 @@
  *
  * Handles all AJAX requests.
  *
- * @since NEXT
+ * @since 1.0.0
  * @package WDS Exacttarget Data Extension API
  */
 
 /**
  * AJAX Requests.
  *
- * @since NEXT
+ * @since 1.0.0
  */
 class WDS_ET_DE_Ajax {
 
@@ -19,7 +19,7 @@ class WDS_ET_DE_Ajax {
 	 * Parent plugin class
 	 *
 	 * @var   class
-	 * @since NEXT
+	 * @since 1.0.0
 	 */
 	protected $plugin = null;
 
@@ -29,7 +29,7 @@ class WDS_ET_DE_Ajax {
 	 * Add your actions here and create public methods by the same name.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @var array
 	 */
@@ -43,7 +43,7 @@ class WDS_ET_DE_Ajax {
 	 * Add your actions here and create public methods by the same name.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @var array
 	 */
@@ -54,7 +54,7 @@ class WDS_ET_DE_Ajax {
 	/**
 	 * Constructor
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @param  object $plugin Main plugin object.
 	 * @return void
 	 */
@@ -67,7 +67,7 @@ class WDS_ET_DE_Ajax {
 	 * Create endpoints for our actions.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	private function create_endpoints() {
 
@@ -94,7 +94,7 @@ class WDS_ET_DE_Ajax {
 	 * Check the Exact Target Client ID/Secret connection details.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	function wds_exacttarget_data_extension_api_check_connection() {
 

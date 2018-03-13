@@ -2,14 +2,14 @@
 /**
  * FuelSDK Configuration.
  *
- * @since NEXT
+ * @since 1.0.0
  * @package WDS Exacttarget Data Extension API
  */
 
 /**
  * FuelSDK Configuration.
  *
- * @since  NEXT
+ * @since 1.0.0
  * @author Aubrey Portwood
  */
 class WDS_ET_DE_Fuelsdk_Config {
@@ -18,7 +18,7 @@ class WDS_ET_DE_Fuelsdk_Config {
 	 * Parent plugin class
 	 *
 	 * @var   class
-	 * @since NEXT
+	 * @since 1.0.0
 	 */
 	protected $plugin = null;
 
@@ -26,7 +26,7 @@ class WDS_ET_DE_Fuelsdk_Config {
 	 * Admin Settings.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @var array
 	 */
 	protected $settings = array();
@@ -34,7 +34,7 @@ class WDS_ET_DE_Fuelsdk_Config {
 	/**
 	 * Constructor
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @param  object $plugin Main plugin object.
 	 * @return void
 	 */
@@ -58,7 +58,7 @@ class WDS_ET_DE_Fuelsdk_Config {
 	 * Overwrite the client_id and secret settings from POST.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	private function detect_overwrite_settings() {
 
@@ -75,7 +75,7 @@ class WDS_ET_DE_Fuelsdk_Config {
 		 * Filter the settings.
 		 *
 		 * @author Aubrey Portwood
-		 * @since  NEXT
+		 * @since 1.0.0
 		 *
 		 * @var array
 		 */
@@ -86,7 +86,7 @@ class WDS_ET_DE_Fuelsdk_Config {
 	 * Get the Client ID.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @return string The Client ID.
 	 */
@@ -100,7 +100,7 @@ class WDS_ET_DE_Fuelsdk_Config {
 	 * Get the Client Secret.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @return string The Client Secret.
 	 */

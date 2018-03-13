@@ -7,7 +7,7 @@ $client_secret = wds_exacttarget_data_extension_api()->fuelsdk_config->get_clien
  * Filter the connection settings.
  *
  * @author Aubrey Portwood
- * @since  NEXT
+ * @since 1.0.0
  */
 return apply_filters( 'wds_exacttarget_data_extension_api_fuelsdk_config', array(
 	'appsignature' => 'none',

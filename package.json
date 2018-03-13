@@ -1,7 +1,7 @@
 {
 	"name": "wds-exacttarget-data-extension-api",
 	"title": "WDS Exacttarget Data Extension API",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "A library for pushing data to Exacttarget Data Extensions.",
 	"author": {
 		"name": "WebDevStudios",

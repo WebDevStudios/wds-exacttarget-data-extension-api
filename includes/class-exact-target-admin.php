@@ -2,7 +2,7 @@
 /**
  * WDS Exacttarget Data Extension API Exact Target Admin
  *
- * @since NEXT
+ * @since 1.0.0
  * @package WDS Exacttarget Data Extension API
  */
 
@@ -11,7 +11,7 @@ require_once dirname(__FILE__) . '/../vendor/cmb2/init.php';
 /**
  * WDS Exacttarget Data Extension API Exact Target Admin class.
  *
- * @since NEXT
+ * @since 1.0.0
  */
 class WDS_ET_DE_Exact_Target_Admin {
 
@@ -19,7 +19,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 * Parent plugin class
 	 *
 	 * @var    class
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	protected $plugin = null;
 
@@ -27,7 +27,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 * Option key, and option page slug
 	 *
 	 * @var    string
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	protected $key = 'wds_exacttarget_data_extension_api_admin';
 
@@ -35,7 +35,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 * Options page metabox id.
 	 *
 	 * @var    string
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	protected $metabox_id = 'wds_exacttarget_data_extension_api_admin_metabox';
 
@@ -43,7 +43,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 * Options Page title
 	 *
 	 * @var    string
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	protected $title = '';
 
@@ -56,7 +56,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	/**
 	 * Constructor
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @param  object $plugin Main plugin object.
 	 * @return void
 	 */
@@ -70,7 +70,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	/**
 	 * Initiate our hooks
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return void
 	 *
 	 * @author Aubrey Portwood
@@ -93,7 +93,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 * Enqueue Scripts.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	public function admin_enqueue_scripts() {
 		$page = isset( $_GET['page'] ) ? $_GET['page'] : false;
@@ -109,7 +109,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 * Options page hooks.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	public function options_page_hooks() {
 
@@ -139,7 +139,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	/**
 	 * Replaces get_option with get_site_option.
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @author Aubrey Portwood
 	 */
 	public function get_override( $test, $default = false ) {
@@ -149,7 +149,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	/**
 	 * Replaces update_option with update_site_option.
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @author Aubrey Portwood
 	 */
 	public function update_override( $test, $option_value ) {
@@ -160,7 +160,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	/**
 	 * Register our setting to WP
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return void
 	 */
 	public function admin_init() {
@@ -176,7 +176,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	 * can easily be enabled/disabled.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	public function debug_hooks() {
 
@@ -212,7 +212,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	/**
 	 * Add menu options page
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return void
 	 *
 	 * @author Aubrey Portwood
@@ -231,7 +231,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	/**
 	 * Admin page markup. Mostly handled by CMB2
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return void
 	 */
 	public function admin_page_display() {
@@ -247,7 +247,7 @@ class WDS_ET_DE_Exact_Target_Admin {
 	/**
 	 * Add custom fields to the options page.
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return void
 	 *
 	 * @author Aubrey Portwood

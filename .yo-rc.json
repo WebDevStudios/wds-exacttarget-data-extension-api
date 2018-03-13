@@ -3,7 +3,7 @@
     "name": "WDS Exacttarget Data Extension API",
     "homepage": "http://webdevstudios.com",
     "description": "A library for pushing data to Exacttarget Data Extensions.",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "author": "WebDevStudios",
     "authoremail": "contact@webdevstudios.com",
     "authorurl": "http://webdevstudios.com",

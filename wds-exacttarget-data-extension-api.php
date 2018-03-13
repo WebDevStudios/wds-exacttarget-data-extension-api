@@ -3,7 +3,7 @@
  * Plugin Name: WDS Exacttarget Data Extension API
  * Plugin URI:  http://webdevstudios.com
  * Description: A library for pushing data to Exacttarget Data Extensions.
- * Version:     0.0.0
+ * Version:     1.0.0
  * Author:      WebDevStudios
  * Author URI:  http://webdevstudios.com
  * Donate link: http://webdevstudios.com
@@ -14,7 +14,7 @@
  * @link        http://webdevstudios.com
  *
  * @package     WDS Exacttarget Data Extension API
- * @version     0.0.0
+ * @version     1.0.0
  *
  * @author      Aubrey Portwood, Kellen Mace
  */
@@ -44,7 +44,7 @@
 /**
  * Autoloads files with classes when needed
  *
- * @since  NEXT
+ * @since 1.0.0
  * @param  string $class_name Name of the class being requested.
  * @return void
  */
@@ -65,7 +65,7 @@ spl_autoload_register( 'wds_exacttarget_data_extension_api_autoload_classes' );
 /**
  * Main initiation class
  *
- * @since  NEXT
+ * @since 1.0.0
  */
 final class WDS_ET_DE {
 
@@ -73,15 +73,15 @@ final class WDS_ET_DE {
 	 * Current version
 	 *
 	 * @var  string
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
-	const VERSION = '0.0.0';
+	const VERSION = '1.0.0';
 
 	/**
 	 * This file.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @var string
 	 */
@@ -91,7 +91,7 @@ final class WDS_ET_DE {
 	 * URL of plugin directory
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	protected $url = '';
 
@@ -99,7 +99,7 @@ final class WDS_ET_DE {
 	 * Path of plugin directory
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	protected $path = '';
 
@@ -107,7 +107,7 @@ final class WDS_ET_DE {
 	 * Plugin basename
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	protected $basename = '';
 
@@ -115,14 +115,14 @@ final class WDS_ET_DE {
 	 * Singleton instance of plugin
 	 *
 	 * @var WDS_ET_DE
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	protected static $single_instance = null;
 
 	/**
 	 * Instance of WDS_ET_DE_Vendors
 	 *
-	 * @since NEXT
+	 * @since 1.0.0
 	 * @var WDS_ET_DE_Vendors
 	 */
 	protected $vendors;
@@ -130,7 +130,7 @@ final class WDS_ET_DE {
 	/**
 	 * Instance of WDS_ET_DE_Fuelsdk_Config
 	 *
-	 * @since NEXT
+	 * @since 1.0.0
 	 * @var WDS_ET_DE_Fuelsdk_Config
 	 */
 	protected $fuelsdk_config;
@@ -138,7 +138,7 @@ final class WDS_ET_DE {
 	/**
 	 * Instance of WDS_ET_DE_Helpers
 	 *
-	 * @since NEXT
+	 * @since 1.0.0
 	 * @var WDS_ET_DE_Helpers
 	 */
 	protected $helpers;
@@ -146,7 +146,7 @@ final class WDS_ET_DE {
 	/**
 	 * Instance of WDS_ET_DE_Exact_Target_Admin
 	 *
-	 * @since NEXT
+	 * @since 1.0.0
 	 * @var WDS_ET_DE_Exact_Target_Admin
 	 */
 	protected $admin;
@@ -154,7 +154,7 @@ final class WDS_ET_DE {
 	/**
 	 * Instance of WDS_ET_DE_Ajax
 	 *
-	 * @since NEXT
+	 * @since 1.0.0
 	 * @var WDS_ET_DE_Ajax
 	 */
 	protected $ajax;
@@ -162,7 +162,7 @@ final class WDS_ET_DE {
 	/**
 	 * Creates or returns an instance of this class.
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return WDS_ET_DE A single instance of this class.
 	 */
 	public static function get_instance() {
@@ -176,7 +176,7 @@ final class WDS_ET_DE {
 	/**
 	 * Sets up our plugin
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	protected function __construct() {
 		$this->basename = plugin_basename( __FILE__ );
@@ -188,7 +188,7 @@ final class WDS_ET_DE {
 	/**
 	 * Attach other plugin classes to the base plugin class.
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return void
 	 */
 	public function plugin_classes() {
@@ -203,7 +203,7 @@ final class WDS_ET_DE {
 	/**
 	 * Add hooks and filters
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return void
 	 */
 	public function hooks() {
@@ -214,7 +214,7 @@ final class WDS_ET_DE {
 	/**
 	 * Activate the plugin
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return void
 	 */
 	public function _activate() {
@@ -226,7 +226,7 @@ final class WDS_ET_DE {
 	 * The plugin version.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @return string The version.
 	 */
@@ -238,7 +238,7 @@ final class WDS_ET_DE {
 	 * Deactivate the plugin
 	 * Uninstall routines should be in uninstall.php
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return void
 	 */
 	public function _deactivate() {}
@@ -246,7 +246,7 @@ final class WDS_ET_DE {
 	/**
 	 * Init hooks
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return void
 	 */
 	public function init() {
@@ -260,7 +260,7 @@ final class WDS_ET_DE {
 	 * Check if the plugin meets requirements and
 	 * disable it if they are not present.
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return boolean result of meets_requirements
 	 */
 	public function check_requirements() {
@@ -281,7 +281,7 @@ final class WDS_ET_DE {
 	/**
 	 * Deactivates this plugin, hook this function on admin_init.
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return void
 	 */
 	public function deactivate_me() {
@@ -291,7 +291,7 @@ final class WDS_ET_DE {
 	/**
 	 * Check that all plugin requirements are met
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return boolean True if requirements are met.
 	 */
 	public static function meets_requirements() {
@@ -304,7 +304,7 @@ final class WDS_ET_DE {
 	/**
 	 * Adds a notice to the dashboard if the plugin requirements are not met
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return void
 	 */
 	public function requirements_not_met_notice() {
@@ -317,7 +317,7 @@ final class WDS_ET_DE {
 	/**
 	 * Magic getter for our object.
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @param string $field Field to get.
 	 * @throws Exception Throws an exception if the field is invalid.
 	 * @return mixed
@@ -344,7 +344,7 @@ final class WDS_ET_DE {
 	/**
 	 * Include a file from the includes directory
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @param  string $filename Name of the file to be included.
 	 * @return bool   Result of include call.
 	 */
@@ -359,7 +359,7 @@ final class WDS_ET_DE {
 	/**
 	 * This plugin's directory
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @param  string $path (optional) appended path.
 	 * @return string       Directory and path
 	 */
@@ -372,7 +372,7 @@ final class WDS_ET_DE {
 	/**
 	 * This plugin's url
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @param  string $path (optional) appended path.
 	 * @return string       URL and path
 	 */
@@ -387,7 +387,7 @@ final class WDS_ET_DE {
  * Grab the WDS_ET_DE object and return it.
  * Wrapper for WDS_ET_DE::get_instance()
  *
- * @since  NEXT
+ * @since 1.0.0
  * @return WDS_ET_DE  Singleton instance of plugin class.
  */
 function wds_exacttarget_data_extension_api() {

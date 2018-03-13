@@ -2,7 +2,7 @@
 /**
  * Exacttarget Data Extension API.
  *
- * @since NEXT
+ * @since 1.0.0
  * @package WDS Exacttarget Data Extension API
  */
 
@@ -21,7 +21,7 @@
  * Note, the instantiation of this class has to happen after this plugin is
  * loaded, e.g. init, admin_init, wp_loaded, or plugins_loaded or after.
  *
- * @since  NEXT
+ * @since 1.0.0
  * @author Aubrey Portwood, Kellen Mace
  */
 class WDS_ET_DE_API {
@@ -30,7 +30,7 @@ class WDS_ET_DE_API {
 	 * The FuelSDK Client.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @var boolean|ET_Client
 	 */
@@ -44,7 +44,7 @@ class WDS_ET_DE_API {
 	 * you can examine most API errors here.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @var boolean|WP_Error
 	 */
@@ -53,7 +53,7 @@ class WDS_ET_DE_API {
 	/**
 	 * Magic getter for properties.
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @author Kellen Mace
 	 *
 	 * @param  string    $field Field to get.
@@ -76,7 +76,7 @@ class WDS_ET_DE_API {
 	 * Creates a place to track errors and connects to the API
 	 * using the connection details saved in the WP Admin.
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @author Aubrey Portwood
 	 */
 	public function __construct() {
@@ -96,7 +96,7 @@ class WDS_ET_DE_API {
 	 * ET_Client without any exceptions being thrown, we connected!
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @return boolean True if we connected, false if not.
 	 */
@@ -139,7 +139,7 @@ class WDS_ET_DE_API {
 	 * that we attempt again here before we try any API operations.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @param  string $extension_name The Extension Name.
 	 * @return boolean                True if we are connected and have a valid extension name.
@@ -179,7 +179,7 @@ class WDS_ET_DE_API {
 	 * in all CRUD operations in this class.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @param  string $extension_name The Extension Name.
 	 * @param  array $columns         The columns of data.
@@ -223,7 +223,7 @@ class WDS_ET_DE_API {
 	 * E.g.: Remove from [this extension] where [primary key column] has [value].
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @param  string $extension_name The Extension Name (Data Extension).
 	 * @param  string $primary_key    The primary key.
@@ -306,7 +306,7 @@ class WDS_ET_DE_API {
 	 * name (key) and the column value (value).
 	 *
 	 * @author Aubrey Portwood, Kellen Mace
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @param  array $columns  The columns.
 	 *
@@ -382,7 +382,7 @@ class WDS_ET_DE_API {
 	 * "Points" columns has a value greater than 20.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @param  string  $extension_name The Extension Name (Data Extension).
 	 * @param  array   $columns        The columns of data to get from the row.
@@ -526,7 +526,7 @@ class WDS_ET_DE_API {
 	 * used to get the primary key value when updating a row more easily.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @param  string $extension_name Extension key (Data Extension).
 	 * @param  array $columns         The keys (column) and their values.
@@ -607,7 +607,7 @@ class WDS_ET_DE_API {
 	 * in Exacttarget, and "First Name" to "Jack".
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @param string      $extension_name The Extension NAme (Data Extension).
 	 * @param array       $columns        The keys (column) and their values.
@@ -686,7 +686,7 @@ class WDS_ET_DE_API {
 	 * the object structure can be quite complex.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @param  object $response    Response.
 	 * @param  string $primary_key The name of the column.

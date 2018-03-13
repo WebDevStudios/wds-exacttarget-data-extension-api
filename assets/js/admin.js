@@ -13,7 +13,7 @@ if ( ! window.hasOwnProperty( 'WDS_Exacttarget_Data_Extension_API_Admin' ) ) {
 	 * Application.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @param  {object} window Window object.
 	 * @param  {object} $      jQuery object.
@@ -59,7 +59,7 @@ if ( ! window.hasOwnProperty( 'WDS_Exacttarget_Data_Extension_API_Admin' ) ) {
 			 * Mark inputs with success or error.
 			 *
 			 * @author Aubrey Portwood
-			 * @since  NEXT
+			 * @since 1.0.0
 			 *
 			 * @param  {boolean} success True will go with success, false with an error.
 			 */

@@ -3,14 +3,14 @@
 /**
  * WDS Exacttarget Data Extension API Vendors
  *
- * @since NEXT
+ * @since 1.0.0
  * @package WDS Exacttarget Data Extension API
  */
 
 /**
  * WDS Exacttarget Data Extension API Vendors.
  *
- * @since NEXT
+ * @since 1.0.0
  */
 class WDS_ET_DE_Vendors {
 
@@ -18,7 +18,7 @@ class WDS_ET_DE_Vendors {
 	 * Parent plugin class
 	 *
 	 * @var   class
-	 * @since NEXT
+	 * @since 1.0.0
 	 */
 	protected $plugin = null;
 
@@ -26,7 +26,7 @@ class WDS_ET_DE_Vendors {
 	 * Includes that will be loaded.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 *
 	 * @var array
 	 */
@@ -35,7 +35,7 @@ class WDS_ET_DE_Vendors {
 	/**
 	 * Constructor
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @param  object $plugin  Main plugin object.
 	 * @param  array  $vendors Other vendor files to include.
 	 * @return void
@@ -52,7 +52,7 @@ class WDS_ET_DE_Vendors {
 	 * Load the vendor files.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 */
 	private function load_vendor_files() {
 		foreach ( $this->includes as $file ) {
@@ -76,7 +76,7 @@ class WDS_ET_DE_Vendors {
 	 * Get the vendor includes.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return array An array of includes to require.
 	 */
 	private function get_vendors( $vendors = array() ) {

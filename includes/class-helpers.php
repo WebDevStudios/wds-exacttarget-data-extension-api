@@ -4,7 +4,7 @@
  *
  * Functions that don't really belong in any of the other classes.
  *
- * @since NEXT
+ * @since 1.0.0
  * @package WDS Exacttarget Data Extension API
  */
 
@@ -14,7 +14,7 @@
  * These are functions that we can use globally throughout
  * the plugin.
  *
- * @since  NEXT
+ * @since 1.0.0
  * @author Aubrey Portwood
  */
 class WDS_ET_DE_Helpers {
@@ -23,14 +23,14 @@ class WDS_ET_DE_Helpers {
 	 * Parent plugin class.
 	 *
 	 * @var   class
-	 * @since NEXT
+	 * @since 1.0.0
 	 */
 	protected $plugin = null;
 
 	/**
 	 * Constructor.
 	 *
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @param  object $plugin Main plugin object.
 	 * @return void
 	 */
@@ -46,7 +46,7 @@ class WDS_ET_DE_Helpers {
 	 * multi-site is active.
 	 *
 	 * @author Aubrey Portwood
-	 * @since  NEXT
+	 * @since 1.0.0
 	 * @return boolean True if we want things to behave like mulitisite, false if not.
 	 */
 	public function is_multisite() {
